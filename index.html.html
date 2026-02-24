@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MRR Mastery — Build Your Recurring Revenue Empire</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --border: #1e1e2e;
+    --accent: #00ff88;
+    --accent2: #ff6b35;
+    --accent3: #6366f1;
+    --text: #e8e8f0;
+    --muted: #6b6b80;
+    --card: #16161f;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* Animated background grid */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(0,255,136,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,255,136,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Nav */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 1rem 2rem;
+    background: rgba(10,10,15,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+    color: var(--accent);
+    text-shadow: 0 0 30px rgba(0,255,136,0.5);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-cta {
+    background: var(--accent);
+    color: #000;
+    padding: 0.5rem 1.25rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: all 0.2s;
+  }
+
+  .nav-cta:hover { background: #00cc6a; transform: translateY(-1px); }
+
+  /* Hero */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8rem 2rem 4rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(0,255,136,0.1);
+    border: 1px solid rgba(0,255,136,0.3);
+    color: var(--accent);
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(0,255,136,0.3); }
+    50% { box-shadow: 0 0 0 8px rgba(0,255,136,0); }
+  }
+
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 10vw, 8rem);
+    line-height: 0.95;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 span {
+    color: var(--accent);
+    text-shadow: 0 0 60px rgba(0,255,136,0.4);
+  }
+
+  .hero h1 .highlight2 {
+    color: var(--accent2);
+    text-shadow: 0 0 60px rgba(255,107,53,0.4);
+  }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--muted);
+    max-width: 560px;
+    margin: 0 auto 2.5rem;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #000;
+    padding: 0.9rem 2rem;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: all 0.25s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: #00e87a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,255,136,0.3);
+  }
+
+  .btn-secondary {
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 0.9rem 2rem;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: all 0.25s;
+    display: inline-block;
+    background: rgba(255,255,255,0.03);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  /* Stats ticker */
+  .stats-ticker {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+
+  .stat-item {
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--accent);
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  /* Sections */
+  section {
+    padding: 6rem 2rem;
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+    color: var(--muted);
+    max-width: 560px;
+    margin-bottom: 3rem;
+    font-weight: 300;
+  }
+
+  /* What is MRR */
+  .mrr-explainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .mrr-visual {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mrr-visual::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent3));
+  }
+
+  .mrr-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    height: 120px;
+    margin-bottom: 1rem;
+  }
+
+  .bar {
+    flex: 1;
+    border-radius: 4px 4px 0 0;
+    animation: growBar 1s ease-out forwards;
+    position: relative;
+  }
+
+  @keyframes growBar {
+    from { height: 0 !important; }
+  }
+
+  .bar-1 { background: rgba(0,255,136,0.3); height: 30%; animation-delay: 0.1s; }
+  .bar-2 { background: rgba(0,255,136,0.4); height: 45%; animation-delay: 0.2s; }
+  .bar-3 { background: rgba(0,255,136,0.5); height: 55%; animation-delay: 0.3s; }
+  .bar-4 { background: rgba(0,255,136,0.6); height: 65%; animation-delay: 0.4s; }
+  .bar-5 { background: rgba(0,255,136,0.7); height: 75%; animation-delay: 0.5s; }
+  .bar-6 { background: rgba(0,255,136,0.85); height: 85%; animation-delay: 0.6s; }
+  .bar-7 { background: var(--accent); height: 100%; animation-delay: 0.7s; }
+
+  .chart-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+
+  .mrr-formula {
+    background: rgba(0,255,136,0.05);
+    border: 1px solid rgba(0,255,136,0.2);
+    border-radius: 8px;
+    padding: 1rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--accent);
+    margin-top: 1rem;
+  }
+
+  /* Cards Grid */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.75rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,255,136,0.05) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .card:hover { 
+    border-color: rgba(0,255,136,0.3); 
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+  }
+
+  .card:hover::before { opacity: 1; }
+
+  .card-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.75rem;
+    color: var(--text);
+  }
+
+  .card p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .card-tag {
+    display: inline-block;
+    background: rgba(0,255,136,0.1);
+    color: var(--accent);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  /* SMART Goals Section */
+  .smart-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .smart-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+    transition: all 0.3s;
+  }
+
+  .smart-card:hover {
+    border-color: var(--accent3);
+    transform: translateY(-3px);
+  }
+
+  .smart-letter {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: var(--accent3);
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .smart-word {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .smart-desc {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* Channels */
+  .channels-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .channel-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    transition: all 0.3s;
+  }
+
+  .channel-item:hover {
+    border-color: rgba(255,107,53,0.4);
+    transform: translateX(4px);
+  }
+
+  .channel-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,107,53,0.1);
+    border-radius: 10px;
+  }
+
+  .channel-content h4 {
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+
+  .channel-content p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* Tools */
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .tool-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem;
+    transition: all 0.3s;
+  }
+
+  .tool-card:hover {
+    border-color: var(--accent3);
+    transform: translateY(-2px);
+  }
+
+  .tool-category {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--accent3);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+  }
+
+  .tool-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .tool-desc {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  .free-badge {
+    display: inline-block;
+    background: rgba(0,255,136,0.1);
+    color: var(--accent);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.65rem;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 1px;
+    margin-top: 0.5rem;
+  }
+
+  /* Data Analysis */
+  .data-steps {
+    counter-reset: step;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .data-step {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s;
+  }
+
+  .data-step:hover {
+    border-color: rgba(0,255,136,0.2);
+  }
+
+  .step-num {
+    counter-increment: step;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    color: rgba(0,255,136,0.2);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 50px;
+  }
+
+  .step-content h4 {
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+
+  .step-content p {
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  /* Free Resources */
+  .free-resources {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 3rem;
+    margin-top: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .free-resources::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(0,255,136,0.08) 0%, transparent 70%);
+  }
+
+  .free-resources h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+  }
+
+  .resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .resource-item {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.25s;
+    display: block;
+  }
+
+  .resource-item:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .resource-item .icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+  .resource-item .name { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.25rem; }
+  .resource-item .desc { font-size: 0.78rem; color: var(--muted); }
+
+  /* CTA section */
+  .cta-section {
+    text-align: center;
+    padding: 6rem 2rem;
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .cta-box {
+    background: var(--surface);
+    border: 1px solid rgba(0,255,136,0.2);
+    border-radius: 20px;
+    padding: 4rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--accent3), var(--accent2));
+  }
+
+  .cta-box::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; right: -100px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(0,255,136,0.1) 0%, transparent 70%);
+  }
+
+  .cta-box h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+  }
+
+  .cta-box p {
+    color: var(--muted);
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+  }
+
+  /* Affiliate Disclosure */
+  .disclosure {
+    background: rgba(255,107,53,0.05);
+    border: 1px solid rgba(255,107,53,0.2);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    text-align: left;
+  }
+
+  .disclosure strong { color: var(--accent2); }
+
+  /* Footer */
+  footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  footer .logo { font-size: 1.4rem; margin-bottom: 1rem; display: block; }
+  footer p { font-size: 0.8rem; color: var(--muted); }
+
+  /* Divider */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0;
+  }
+
+  /* Scroll animations */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.7s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .mrr-explainer { grid-template-columns: 1fr; }
+    .smart-grid { grid-template-columns: repeat(3, 1fr); }
+    .channels-list { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    nav { padding: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <span class="logo">MRR MASTERY</span>
+  <ul class="nav-links">
+    <li><a href="#what-is-mrr">What is MRR</a></li>
+    <li><a href="#components">Components</a></li>
+    <li><a href="#strategies">Strategies</a></li>
+    <li><a href="#channels">Channels</a></li>
+    <li><a href="#tools">Tools</a></li>
+  </ul>
+  <a href="#start" class="nav-cta">Start Free →</a>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="start">
+  <div>
+    <div class="hero-badge">🚀 Zero Startup Costs Required</div>
+    <h1 class="fade-up">
+      BUILD YOUR<br>
+      <span>RECURRING</span><br>
+      <span class="highlight2">REVENUE</span><br>
+      EMPIRE
+    </h1>
+    <p class="hero-sub fade-up delay-1">
+      A complete guide to building a digital marketing program that generates Monthly Recurring Revenue — starting with absolutely no upfront investment.
+    </p>
+    <div class="hero-cta-group fade-up delay-2">
+      <a href="#what-is-mrr" class="btn-primary">Learn the System →</a>
+      <a href="#tools" class="btn-secondary">Free Tools</a>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<div class="stats-ticker">
+  <div class="stat-item">
+    <span class="stat-num">$0</span>
+    <span class="stat-label">Startup Cost</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">7+</span>
+    <span class="stat-label">Free Channels</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">MRR</span>
+    <span class="stat-label">Focus Model</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">∞</span>
+    <span class="stat-label">Scalability</span>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- What is MRR -->
+<section id="what-is-mrr">
+  <span class="section-label">01 — Foundation</span>
+  <h2 class="section-title">What is Monthly<br>Recurring Revenue?</h2>
+  <p class="section-subtitle">MRR is the backbone of sustainable digital businesses. It's the predictable income that grows while you sleep.</p>
+
+  <div class="mrr-explainer">
+    <div>
+      <p style="margin-bottom:1.25rem;color:var(--muted);">
+        <strong style="color:var(--text);">Monthly Recurring Revenue (MRR)</strong> is the predictable amount of revenue a business generates every month from active subscriptions, memberships, retainer agreements, or any product/service charged on a recurring basis.
+      </p>
+      <p style="margin-bottom:1.25rem;color:var(--muted);">
+        Unlike one-time sales, MRR compounds over time. As you add new subscribers without losing existing ones, your revenue grows automatically. This is the power of the subscription economy and why it's the #1 business model for affiliate marketers.
+      </p>
+      <p style="margin-bottom:1.25rem;color:var(--muted);">
+        <strong style="color:var(--accent);">Why it matters:</strong> Predictable cash flow means you can plan, invest, and scale. Investors value MRR-based businesses at 5–10× higher multiples than one-time purchase businesses.
+      </p>
+      <div class="mrr-formula">
+        MRR = (Number of Subscribers) × (Average Revenue Per User)
+        <br><br>
+        💡 Example: 200 users × $47/mo = $9,400 MRR
+      </div>
+    </div>
+    <div class="mrr-visual">
+      <div style="font-size:0.75rem;color:var(--muted);margin-bottom:1rem;font-family:'DM Mono',monospace;">MRR GROWTH OVER 7 MONTHS</div>
+      <div class="mrr-chart">
+        <div class="bar bar-1"></div>
+        <div class="bar bar-2"></div>
+        <div class="bar bar-3"></div>
+        <div class="bar bar-4"></div>
+        <div class="bar bar-5"></div>
+        <div class="bar bar-6"></div>
+        <div class="bar bar-7"></div>
+      </div>
+      <div class="chart-label">Jan → Jul | Consistent subscriber growth</div>
+      <div style="margin-top:1.5rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+        <div style="background:rgba(0,255,136,0.08);border-radius:8px;padding:0.75rem;text-align:center;">
+          <div style="font-family:'DM Mono',monospace;font-size:1.25rem;color:var(--accent);">+34%</div>
+          <div style="font-size:0.7rem;color:var(--muted);">Avg Monthly Growth</div>
+        </div>
+        <div style="background:rgba(99,102,241,0.08);border-radius:8px;padding:0.75rem;text-align:center;">
+          <div style="font-family:'DM Mono',monospace;font-size:1.25rem;color:var(--accent3);">12mo</div>
+          <div style="font-size:0.7rem;color:var(--muted);">To $10K MRR Potential</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- Key Components -->
+<section id="components" style="max-width:1200px;margin:0 auto;padding:6rem 2rem;">
+  <span class="section-label">02 — Building Blocks</span>
+  <h2 class="section-title">Key Components of a<br>Successful MRR Program</h2>
+  <p class="section-subtitle">These are the non-negotiable elements every successful digital marketing program needs to generate recurring revenue.</p>
+
+  <div class="cards-grid">
+    <div class="card">
+      <div class="card-icon">🎯</div>
+      <div class="card-tag">Core</div>
+      <h3>Niche Selection</h3>
+      <p>Choose a specific audience with a real, ongoing problem. The tighter your niche, the easier it is to build authority, drive organic traffic, and convert visitors into paying subscribers.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📧</div>
+      <div class="card-tag">Core</div>
+      <h3>Email List Building</h3>
+      <p>Your email list is your most valuable recurring revenue asset. Every subscriber is a direct channel to promote MRR affiliate programs. Start building day one — it's free with tools like MailerLite.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">✍️</div>
+      <div class="card-tag">Traffic</div>
+      <h3>Content Marketing</h3>
+      <p>Long-form blog posts, YouTube videos, and social content drive organic, compounding traffic. Good content generates leads and affiliate commissions months or years after publishing — with zero ad spend.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔗</div>
+      <div class="card-tag">Revenue</div>
+      <h3>Affiliate Partnerships</h3>
+      <p>Partner with SaaS companies, membership sites, and subscription services that pay recurring commissions. Every referral pays you monthly for the life of the customer subscription.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔄</div>
+      <div class="card-tag">Retention</div>
+      <h3>Automation Funnels</h3>
+      <p>Build automated email sequences and retargeting flows that nurture leads into customers on autopilot. Free tools like MailerLite and Systeme.io let you do this without any cost.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📊</div>
+      <div class="card-tag">Optimization</div>
+      <h3>Analytics & Tracking</h3>
+      <p>Track every click, open rate, and conversion. Use free tools like Google Analytics and Hotjar to identify what's working and double down on it while cutting what isn't.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- Strategies -->
+<section id="strategies" style="max-width:1200px;margin:0 auto;padding:6rem 2rem;">
+  <span class="section-label">03 — Growth Engine</span>
+  <h2 class="section-title">Customer Acquisition &<br>Retention Strategies</h2>
+  <p class="section-subtitle">Growing MRR requires two things: bringing in new subscribers, and keeping the ones you have. Here's how.</p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem;">
+    <div>
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:1px;color:var(--accent);margin-bottom:1.25rem;">Acquisition</h3>
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <div class="card" style="padding:1.25rem;">
+          <strong>SEO Content Strategy</strong>
+          <p style="margin-top:0.4rem;">Publish "best [tool] for [niche]" articles that rank on Google and convert readers into affiliate subscribers. Zero cost, compound returns.</p>
+        </div>
+        <div class="card" style="padding:1.25rem;">
+          <strong>Lead Magnet + Email Capture</strong>
+          <p style="margin-top:0.4rem;">Offer a free resource (cheat sheet, mini-course, template) to build your list. Use Canva (free) to create it and MailerLite (free) to deliver it.</p>
+        </div>
+        <div class="card" style="padding:1.25rem;">
+          <strong>YouTube + Social Content</strong>
+          <p style="margin-top:0.4rem;">Create tutorials and reviews around the affiliate products you promote. YouTube is the #2 search engine — leverage it for free organic traffic.</p>
+        </div>
+        <div class="card" style="padding:1.25rem;">
+          <strong>Community Participation</strong>
+          <p style="margin-top:0.4rem;">Engage genuinely in Reddit, Facebook Groups, Discord servers related to your niche. Build reputation, then share resources with affiliate links naturally.</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:1px;color:var(--accent2);margin-bottom:1.25rem;">Retention</h3>
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <div class="card" style="padding:1.25rem;border-color:rgba(255,107,53,0.2);">
+          <strong>Weekly Value Emails</strong>
+          <p style="margin-top:0.4rem;">Send consistent, high-value content to your list. Subscribers who receive value regularly stay subscribed longer and convert more often.</p>
+        </div>
+        <div class="card" style="padding:1.25rem;border-color:rgba(255,107,53,0.2);">
+          <strong>Onboarding Sequence</strong>
+          <p style="margin-top:0.4rem;">Create a 5–7 email welcome sequence that educates new subscribers and introduces your top affiliate recommendations naturally.</p>
+        </div>
+        <div class="card" style="padding:1.25rem;border-color:rgba(255,107,53,0.2);">
+          <strong>Win-Back Campaigns</strong>
+          <p style="margin-top:0.4rem;">Re-engage inactive subscribers with a "we miss you" sequence offering something new or exclusive. Recover lost revenue before unsubscribes happen.</p>
+        </div>
+        <div class="card" style="padding:1.25rem;border-color:rgba(255,107,53,0.2);">
+          <strong>Success Stories & Social Proof</strong>
+          <p style="margin-top:0.4rem;">Regularly share case studies and testimonials of people succeeding with the products you promote. This reinforces purchase decisions and reduces churn.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- Channels -->
+<section id="channels" style="max-width:1200px;margin:0 auto;padding:6rem 2rem;">
+  <span class="section-label">04 — Traffic Sources</span>
+  <h2 class="section-title">Digital Marketing Channels<br>for MRR Promotion</h2>
+  <p class="section-subtitle">All of these channels are free to start. Focus on 2–3 initially and master them before expanding.</p>
+
+  <div class="channels-list">
+    <div class="channel-item">
+      <div class="channel-icon">📝</div>
+      <div class="channel-content">
+        <h4>Blog / SEO (Free)</h4>
+        <p>Write in-depth reviews and tutorials targeting buyer-intent keywords. Tools like Ubersuggest's free plan help you find terms like "best email marketing software for beginners." These rank for years.</p>
+      </div>
+    </div>
+    <div class="channel-item">
+      <div class="channel-icon">▶️</div>
+      <div class="channel-content">
+        <h4>YouTube (Free)</h4>
+        <p>Video reviews, tutorials, and comparisons. Place affiliate links in descriptions. YouTube videos rank in Google too, giving you double exposure with zero ad spend.</p>
+      </div>
+    </div>
+    <div class="channel-item">
+      <div class="channel-icon">📧</div>
+      <div class="channel-content">
+        <h4>Email Marketing (Free)</h4>
+        <p>MailerLite is free up to 1,000 subscribers. This is the highest-converting channel for affiliate offers. A list of 500 engaged subscribers can generate $500–$2,000/month in commissions.</p>
+      </div>
+    </div>
+    <div class="channel-item">
+      <div class="channel-icon">🎵</div>
+      <div class="channel-content">
+        <h4>TikTok / Instagram Reels (Free)</h4>
+        <p>Short-form video has massive organic reach right now. Share tips, transformations, and tool reviews. Link to your landing page in bio to capture leads and commissions.</p>
+      </div>
+    </div>
+    <div class="channel-item">
+      <div class="channel-icon">💼</div>
+      <div class="channel-content">
+        <h4>LinkedIn (Free)</h4>
+        <p>Ideal for B2B SaaS affiliates. Write thought leadership posts about tools and strategies. LinkedIn organic reach is exceptional for business-focused affiliate programs.</p>
+      </div>
+    </div>
+    <div class="channel-item">
+      <div class="channel-icon">🤝</div>
+      <div class="channel-content">
+        <h4>Pinterest (Free)</h4>
+        <p>Evergreen content platform — pins drive traffic for years. Perfect for niches like personal finance, marketing, wellness, productivity, and business. Link directly to affiliate landing pages.</p>
+      </div>
+    </div>
+    <div class="channel-item">
+      <div class="channel-icon">🎙️</div>
+      <div class="channel-content">
+        <h4>Podcasting (Near-Free)</h4>
+        <p>Start a podcast on Anchor (free) discussing your niche. Mention affiliate products authentically in episodes. Podcasters see high trust and conversion rates from their audiences.</p>
+      </div>
+    </div>
+    <div class="channel-item">
+      <div class="channel-icon">💬</div>
+      <div class="channel-content">
+        <h4>Community / Forums (Free)</h4>
+        <p>Reddit, Quora, Facebook Groups, and niche Discord servers. Answer questions genuinely and become a trusted voice. Then recommend tools with your affiliate link when contextually appropriate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SMART Goals -->
+<section style="max-width:1200px;margin:0 auto;padding:6rem 2rem;">
+  <span class="section-label">05 — Goal Setting</span>
+  <h2 class="section-title">Setting SMART Goals<br>for Your MRR Program</h2>
+  <p class="section-subtitle">Vague goals kill progress. SMART goals create accountability, clarity, and momentum.</p>
+
+  <div class="smart-grid">
+    <div class="smart-card">
+      <span class="smart-letter">S</span>
+      <span class="smart-word">Specific</span>
+      <p class="smart-desc">"Reach $2,000 MRR from software affiliate commissions in the marketing tools niche" — not "make money online."</p>
+    </div>
+    <div class="smart-card">
+      <span class="smart-letter">M</span>
+      <span class="smart-word">Measurable</span>
+      <p class="smart-desc">Track weekly: email subscribers, affiliate clicks, conversion rates, MRR. Use a free Google Sheet dashboard.</p>
+    </div>
+    <div class="smart-card">
+      <span class="smart-letter">A</span>
+      <span class="smart-word">Achievable</span>
+      <p class="smart-desc">$500 MRR in 90 days is realistic starting from scratch. $50,000 MRR in 30 days is not. Set stretch but realistic targets.</p>
+    </div>
+    <div class="smart-card">
+      <span class="smart-letter">R</span>
+      <span class="smart-word">Relevant</span>
+      <p class="smart-desc">Every goal should tie directly to growing MRR. "Publish 4 SEO articles/month" is relevant. "Get 10,000 Instagram followers" might not be.</p>
+    </div>
+    <div class="smart-card">
+      <span class="smart-letter">T</span>
+      <span class="smart-word">Time-Bound</span>
+      <p class="smart-desc">Set 30, 60, and 90-day milestones. Review every Monday. Adjust strategy based on data, not feelings.</p>
+    </div>
+  </div>
+
+  <div class="free-resources" style="margin-top:2rem;">
+    <h3>Example SMART Goal Timeline</h3>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;position:relative;z-index:1;">
+      <div>
+        <div style="color:var(--accent);font-family:'DM Mono',monospace;font-size:0.8rem;margin-bottom:0.5rem;">DAYS 1–30</div>
+        <div style="font-weight:600;margin-bottom:0.5rem;">Foundation</div>
+        <div style="font-size:0.85rem;color:var(--muted);">Choose niche. Start blog. Join 3 affiliate programs. Build lead magnet. Set up email list. Write 4 SEO articles. Goal: 100 email subscribers.</div>
+      </div>
+      <div>
+        <div style="color:var(--accent2);font-family:'DM Mono',monospace;font-size:0.8rem;margin-bottom:0.5rem;">DAYS 31–60</div>
+        <div style="font-weight:600;margin-bottom:0.5rem;">Momentum</div>
+        <div style="font-size:0.85rem;color:var(--muted);">8 more articles. Start YouTube or social. Run email sequences. Optimize top posts. Goal: 500 subscribers + first $100 MRR.</div>
+      </div>
+      <div>
+        <div style="color:var(--accent3);font-family:'DM Mono',monospace;font-size:0.8rem;margin-bottom:0.5rem;">DAYS 61–90</div>
+        <div style="font-weight:600;margin-bottom:0.5rem;">Scale</div>
+        <div style="font-size:0.85rem;color:var(--muted);">Double down on what converts. Guest post or collaborate. Launch affiliate promotions. Goal: 1,000 subscribers + $500 MRR.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- Tools -->
+<section id="tools" style="max-width:1200px;margin:0 auto;padding:6rem 2rem;">
+  <span class="section-label">06 — Free Tech Stack</span>
+  <h2 class="section-title">Tools & Technologies<br>(100% Free to Start)</h2>
+  <p class="section-subtitle">You need zero budget to build a professional MRR affiliate marketing operation. Here's your complete free tech stack.</p>
+
+  <div class="disclosure">
+    <strong>⚠️ Affiliate Disclosure:</strong> Some tools listed below have affiliate programs. If you sign up through links on this page, we may earn a commission at no extra cost to you. This helps us keep this resource free. We only recommend tools we'd use ourselves.
+  </div>
+
+  <div class="tools-grid">
+    <div class="tool-card">
+      <div class="tool-category">Website</div>
+      <div class="tool-name">WordPress.com / Blogger</div>
+      <div class="tool-desc">Free blog platform. Start your content marketing base for zero cost.</div>
+      <span class="free-badge">FREE</span>
+    </div>
+    <div class="tool-card">
+      <div class="tool-category">Email Marketing</div>
+      <div class="tool-name">MailerLite</div>
+      <div class="tool-desc">Free up to 1,000 subscribers. Automation, landing pages included.</div>
+      <span class="free-badge">FREE TO 1K</span>
+    </div>
+    <div class="tool-card">
+      <div class="tool-category">All-in-One Funnel</div>
+      <div class="tool-name">Systeme.io</div>
+      <div class="tool-desc">Free forever plan: funnels, email, courses, affiliates. Replaces 5 tools.</div>
+      <span class="free-badge">FREE FOREVER</span>
+    </div>
+    <div class="tool-card">
+      <div class="tool-category">Analytics</div>
+      <div class="tool-name">Google Analytics 4</div>
+      <div class="tool-desc">Track traffic, user behavior, and conversion goals on your site.</div>
+      <span class="free-badge">FREE</span>
+    </div>
+    <div class="tool-card">
+      <div class="tool-category">SEO Research</div>
+      <div class="tool-name">Ubersuggest Free</div>
+      <div class="tool-desc">Keyword research, competitor analysis. 3 free searches/day.</div>
+      <span class="free-badge">FREE TIER</span>
+    </div>
+    <div class="tool-card">
+      <div class="tool-category">SEO Research</div>
+      <div class="tool-name">Google Search Console</div>
+      <div class="tool-desc">Monitor search rankings, impressions, and clicks. Essential and free.</div>
+      <span class="free-badge">FREE</span>
+    </div>
+    <div class="tool-card">
+      <div class="tool-category">Design</div>
+      <div class="tool-name">Canva</div>
+      <div class="tool-desc">Create lead magnets, social graphics, thumbnails — free plan is generous.</div>
+      <span class="free-badge">FREE PLAN</span>
+    </div>
+    <div class="tool-card">
+      <div class="tool-category">Link Management</div>
+      <div class="tool-name">Pretty Links (Free)</div>
+      <div class="tool-desc">Cloak and track affiliate links. Free WordPress plugin.</div>
+      <span class="free-badge">FREE</span>
+    </div>
+    <div class="tool-card">
+      <div class="tool-category">AI Writing</div>
+      <div class="tool-name">Claude / ChatGPT</div>
+      <div class="tool-desc">Use AI to help draft content, email sequences, and marketing copy faster.</div>
+      <span class="free-badge">FREE TIER</span>
+    </div>
+    <div class="tool-card">
+      <div class="tool-category">Social Scheduling</div>
+      <div class="tool-name">Buffer</div>
+      <div class="tool-desc">Schedule social media posts across platforms. Free plan: 3 channels.</div>
+      <span class="free-badge">FREE PLAN</span>
+    </div>
+    <div class="tool-card">
+      <div class="tool-category">Video</div>
+      <div class="tool-name">YouTube Studio</div>
+      <div class="tool-desc">Host and grow a YouTube channel with full analytics. Completely free.</div>
+      <span class="free-badge">FREE</span>
+    </div>
+    <div class="tool-card">
+      <div class="tool-category">Heatmaps</div>
+      <div class="tool-name">Microsoft Clarity</div>
+      <div class="tool-desc">Free heatmaps and session recordings to see how users interact with your site.</div>
+      <span class="free-badge">FREE</span>
+    </div>
+  </div>
+
+  <!-- Top Affiliate Programs -->
+  <div style="margin-top:3rem;">
+    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:1px;margin-bottom:0.75rem;">Top Recurring Affiliate Programs</h3>
+    <p style="color:var(--muted);margin-bottom:1.5rem;font-size:0.9rem;">These programs pay you every month for the life of the customer you refer.</p>
+    <div class="tools-grid">
+      <div class="tool-card" style="border-color:rgba(0,255,136,0.2);">
+        <div class="tool-category">Email / Funnel</div>
+        <div class="tool-name">GetResponse</div>
+        <div class="tool-desc">33% recurring commission. Email marketing and automation platform. Free to join.</div>
+        <span class="free-badge">33% RECURRING</span>
+      </div>
+      <div class="tool-card" style="border-color:rgba(0,255,136,0.2);">
+        <div class="tool-category">Website Builder</div>
+        <div class="tool-name">Builderall</div>
+        <div class="tool-desc">100% first month + 30% recurring. Complete marketing suite.</div>
+        <span class="free-badge">30% RECURRING</span>
+      </div>
+      <div class="tool-card" style="border-color:rgba(0,255,136,0.2);">
+        <div class="tool-category">CRM / Marketing</div>
+        <div class="tool-name">HubSpot</div>
+        <div class="tool-desc">30% recurring for up to 1 year. High-ticket plans mean big commissions.</div>
+        <span class="free-badge">30% RECURRING</span>
+      </div>
+      <div class="tool-card" style="border-color:rgba(0,255,136,0.2);">
+        <div class="tool-category">SEO Software</div>
+        <div class="tool-name">SEMrush</div>
+        <div class="tool-desc">40% recurring commission through BeRush program. Popular premium tool.</div>
+        <span class="free-badge">40% RECURRING</span>
+      </div>
+      <div class="tool-card" style="border-color:rgba(0,255,136,0.2);">
+        <div class="tool-category">All-in-One</div>
+        <div class="tool-name">Systeme.io</div>
+        <div class="tool-desc">50% recurring lifetime commission. Generous free plan drives easy referrals.</div>
+        <span class="free-badge">50% RECURRING</span>
+      </div>
+      <div class="tool-card" style="border-color:rgba(0,255,136,0.2);">
+        <div class="tool-category">Web Hosting</div>
+        <div class="tool-name">Kinsta / WP Engine</div>
+        <div class="tool-desc">10% monthly recurring + one-time bonus. Premium hosting with high conversions.</div>
+        <span class="free-badge">10% RECURRING</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- Data Analysis -->
+<section style="max-width:1200px;margin:0 auto;padding:6rem 2rem;">
+  <span class="section-label">07 — Optimization</span>
+  <h2 class="section-title">Analyze Data to<br>Maximize MRR</h2>
+  <p class="section-subtitle">Data-driven decisions separate successful affiliate marketers from those who guess and hope. Here's how to use it.</p>
+
+  <div class="data-steps">
+    <div class="data-step">
+      <div class="step-num">01</div>
+      <div class="step-content">
+        <h4>Track Your Key Metrics Weekly</h4>
+        <p>Monitor: organic traffic, email list growth, open rates, click-through rates, affiliate link clicks, conversion rates, and actual commissions earned. Build a simple Google Sheet dashboard with these 7 numbers updated every Monday.</p>
+      </div>
+    </div>
+    <div class="data-step">
+      <div class="step-num">02</div>
+      <div class="step-content">
+        <h4>Identify Your Top Performing Content</h4>
+        <p>Use Google Search Console and Google Analytics to find which articles and pages drive the most traffic and generate the most affiliate clicks. Double down: update top posts, create related content, and build internal links to them.</p>
+      </div>
+    </div>
+    <div class="data-step">
+      <div class="step-num">03</div>
+      <div class="step-content">
+        <h4>Analyze Email Performance</h4>
+        <p>Which subject lines get 40%+ open rates? Which emails drive affiliate clicks? A/B test subject lines in MailerLite. Your best-performing email formats become templates you replicate repeatedly.</p>
+      </div>
+    </div>
+    <div class="data-step">
+      <div class="step-num">04</div>
+      <div class="step-content">
+        <h4>Optimize Your Conversion Funnel</h4>
+        <p>Track where people drop off using Microsoft Clarity heatmaps. If 80% of visitors leave your landing page without subscribing, your headline or offer needs work. Test one change at a time and measure the impact over 2 weeks.</p>
+      </div>
+    </div>
+    <div class="data-step">
+      <div class="step-num">05</div>
+      <div class="step-content">
+        <h4>Calculate Affiliate Program ROI</h4>
+        <p>For each affiliate program, track: clicks sent, conversions, monthly commission, and churn rate (how many of your referrals cancel). Focus 80% of your promotional energy on the program with the best MRR retention rate.</p>
+      </div>
+    </div>
+    <div class="data-step">
+      <div class="step-num">06</div>
+      <div class="step-content">
+        <h4>Monthly MRR Review and Forecast</h4>
+        <p>At the end of each month: calculate total MRR, MRR added (new referrals), MRR churned (cancelled), and net MRR growth. Project 90-day MRR based on current growth rate. Identify bottlenecks and set next month's single most important metric to improve.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- Free Resources -->
+<section style="max-width:1200px;margin:0 auto;padding:4rem 2rem;">
+  <span class="section-label">Resources</span>
+  <h2 class="section-title">Free Learning Resources</h2>
+  <p class="section-subtitle">Build your skills without spending a dollar. These platforms offer world-class digital marketing education for free.</p>
+  
+  <div class="resource-grid" style="margin-top:1.5rem;">
+    <div class="resource-item">
+      <div class="icon">🎓</div>
+      <div class="name">Google Digital Garage</div>
+      <div class="desc">Free certified digital marketing course from Google. Covers SEO, analytics, content, ads.</div>
+    </div>
+    <div class="resource-item">
+      <div class="icon">📚</div>
+      <div class="name">HubSpot Academy</div>
+      <div class="desc">Free email marketing, content marketing, and affiliate marketing certifications.</div>
+    </div>
+    <div class="resource-item">
+      <div class="icon">▶️</div>
+      <div class="name">YouTube (Neil Patel)</div>
+      <div class="desc">Hundreds of free SEO and digital marketing tutorials from one of the top marketers.</div>
+    </div>
+    <div class="resource-item">
+      <div class="icon">📖</div>
+      <div class="name">Moz SEO Learning</div>
+      <div class="desc">Free Beginner's Guide to SEO. Best structured SEO education available online.</div>
+    </div>
+    <div class="resource-item">
+      <div class="icon">🤝</div>
+      <div class="name">Affiliate Fix Forum</div>
+      <div class="desc">Free community of affiliate marketers sharing strategies, programs, and insights.</div>
+    </div>
+    <div class="resource-item">
+      <div class="icon">📊</div>
+      <div class="name">Google Analytics Academy</div>
+      <div class="desc">Free GA4 certification. Learn to read and act on your data like a professional.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-box">
+    <span class="section-label" style="display:block;margin-bottom:1rem;">Ready to Start?</span>
+    <h2>Start Building Your MRR<br><span style="color:var(--accent);">Today. For Free.</span></h2>
+    <p>You have everything you need right here. Pick your niche, choose one affiliate program, create a free MailerLite account, and publish your first piece of content this week.</p>
+    <div class="hero-cta-group" style="margin-bottom:0;">
+      <a href="#what-is-mrr" class="btn-primary">← Read From The Start</a>
+      <a href="#tools" class="btn-secondary">See Free Tools</a>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <span class="logo">MRR MASTERY</span>
+  <p style="margin-bottom:0.5rem;">Built for aspiring affiliate marketers who want recurring revenue without upfront investment.</p>
+  <p style="font-size:0.72rem;max-width:600px;margin:0.75rem auto 0;">
+    <strong style="color:var(--accent2);">Affiliate Disclosure:</strong> This website contains affiliate links. We may earn a commission when you purchase through our links, at no additional cost to you. All recommendations are based on genuine assessment of the products and tools mentioned.
+  </p>
+</footer>
+
+<script>
+  // Animate bars on scroll into view
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.bar, .card, .data-step').forEach(el => {
+    observer.observe(el);
+  });
+
+  // Smooth number counter for stats
+  function animateCounter(el, target, suffix) {
+    let count = 0;
+    const increment = target / 50;
+    const timer = setInterval(() => {
+      count = Math.min(count + increment, target);
+      el.textContent = Math.floor(count) + suffix;
+      if (count >= target) clearInterval(timer);
+    }, 30);
+  }
+</script>
+
+</body>
+</html>
